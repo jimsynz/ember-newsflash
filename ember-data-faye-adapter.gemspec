@@ -14,4 +14,10 @@ Gem::Specification.new do |gem|
   gem.name          = "ember-data-faye-adapter"
   gem.require_paths = ["lib"]
   gem.version       = Ember::Data::Faye::Adapter::VERSION
+
+  gem.add_dependency 'faye', '~> 0.8.2'
+
+  gem.add_development_dependency 'cucumber'
+  gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'guard'
 end

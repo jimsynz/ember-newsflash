@@ -1,0 +1,23 @@
+{
+  "author": "James Harton <james@sociable.co.nz> (http://sociable.co.nz/)",
+  "name": "ember-data-faye-adapter",
+  "description": "Adapter for ember-data using Faye as a backend protocol",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jamesotron/ember-data-faye-adapter",
+  "repository": {
+    "url": "https://github.com/jamesotron/ember-data-faye-adapter.git"
+  },
+  "scripts": {
+    "test": "vows --spec --isolate"
+  },
+  "dependencies": {
+    "faye": "0.8.x"
+  },
+  "devDependencies": {
+    "vows": "*"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
