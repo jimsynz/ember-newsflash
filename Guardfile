@@ -11,7 +11,6 @@ end
 
 guard :coffeescript, input: 'lib'
 guard :coffeescript, input: 'spec', bare: true
-guard :coffeescript, input: 'features', bare: true
 
 guard :vows, all_after_pass: false, all_on_start: false do
   watch(%r{^spec/.+_spec\.js$})
@@ -24,6 +23,6 @@ end
 
 guard 'cucumber-js', all_after_pass: false, all_on_start: false do
   watch(%r{^features/.+\.feature$})
-  watch(%r{^features/support/.+\.js$}) { 'features' }
-  watch(%r{^features/step_definitions/(.+)\.js$}) { |m| "features/#{m[1]}.feature" }
+  watch(%r{^features/support/.+\.(js||coffee)$}) { 'features' }
+  watch(%r{^features/step_definitions/(.+)\.(coffee||js)$}) { |m| "features/#{m[1]}.feature" }
 end
