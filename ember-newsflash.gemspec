@@ -23,5 +23,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'guard-bundler'
   gem.add_development_dependency 'guard-coffeescript'
   gem.add_development_dependency 'guard-vows'
+  gem.add_development_dependency 'guard-cucumber-js'
+  gem.add_development_dependency 'guard-rake'
   gem.add_development_dependency 'therubyracer'
 end

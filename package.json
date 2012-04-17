@@ -1,8 +1,8 @@
 {
   "author": "James Harton <james@sociable.co.nz> (http://sociable.co.nz/)",
   "name": "ember-newsflash",
-  "description": "Realtime sychronisation between an ember client and server using Faye.""
-  "version": "0.0.2",
+  "description": "Realtime sychronisation between an ember client and server using Faye.",
+  "version": "0.0.1",
   "homepage": "https://github.com/jamesotron/ember-newsflash",
   "repository": {
     "url": "https://github.com/jamesotron/ember-newsflash.git"
@@ -14,7 +14,8 @@
     "faye": "0.8.x"
   },
   "devDependencies": {
-    "vows": "*"
+    "vows": "*",
+    "cucumber": "*"
   },
   "optionalDependencies": {},
   "engines": {
