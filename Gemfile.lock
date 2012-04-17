@@ -44,14 +44,14 @@ GEM
     guard-coffeescript (0.5.7)
       coffee-script (>= 2.2.0)
       guard (>= 0.8.3)
-    guard-cucumber-js (0.0.1)
+    guard-cucumber-js (0.0.2)
       guard (>= 0.10.0)
     guard-rake (0.0.5)
       guard
       rake
     guard-rspec (0.7.0)
       guard (>= 0.10.0)
-    guard-vows (0.0.2)
+    guard-vows (0.0.4)
       guard (>= 0.10.0)
     http_parser.rb (0.5.3)
     libv8 (3.3.10.4)

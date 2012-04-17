@@ -15,7 +15,8 @@
   },
   "devDependencies": {
     "vows": "*",
-    "cucumber": "*"
+    "cucumber": "*",
+    "zombie": "*"
   },
   "optionalDependencies": {},
   "engines": {

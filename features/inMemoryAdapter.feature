@@ -3,6 +3,9 @@ Feature: ember-data in-memory adapter
   As an ember-data user
   I want to store data in memory
 
+  Background: 
+    Given an ember app is loaded in the browser
+
   Scenario: finding a document by ID
     Given a document exists
     When I ask for it by ID
@@ -43,7 +46,7 @@ Feature: ember-data in-memory adapter
     Given a bunch of documents exist
     When I change their data
     And I save them
-    Then it they should all be modified
+    Then they should all be modified
 
   Scenario: delete a document
     Given a document exists
