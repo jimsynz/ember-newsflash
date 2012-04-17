@@ -1,11 +1,11 @@
 {
   "author": "James Harton <james@sociable.co.nz> (http://sociable.co.nz/)",
-  "name": "ember-data-faye-adapter",
-  "description": "Adapter for ember-data using Faye as a backend protocol",
-  "version": "0.0.1",
-  "homepage": "https://github.com/jamesotron/ember-data-faye-adapter",
+  "name": "ember-newsflash",
+  "description": "Realtime sychronisation between an ember client and server using Faye.""
+  "version": "0.0.2",
+  "homepage": "https://github.com/jamesotron/ember-newsflash",
   "repository": {
-    "url": "https://github.com/jamesotron/ember-data-faye-adapter.git"
+    "url": "https://github.com/jamesotron/ember-newsflash.git"
   },
   "scripts": {
     "test": "vows --spec --isolate"
