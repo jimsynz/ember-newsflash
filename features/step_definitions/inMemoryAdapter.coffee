@@ -1,12 +1,41 @@
-path = require 'path'
-
 inMemoryAdapterWrapper = ->
 
+  @World = require('../support/world').World
+
   @Given /^an ember app is loaded in the browser$/, (callback)->
-    @visit("file://#{path.resolve '../../public/index.html'}", callback)
+    @visit 'http://localhost:9797/', (success)=>
+      if success 
+        @browser.evaluate (-> typeof(window.App)), (result) ->
+          if result == 'undefined'
+            callback.fail "Ember Application not loaded"
+          else
+            callback()
+      else
+        callback.fail "Couldn't load site"
+
+  @Given /^the (.+) store is loaded$/, (store_type, callback)->
+    if store_type == 'in memory'
+      @browser.evaluate (-> window.createInMemoryStore()), (result)->
+        if result?
+          callback()
+        else
+          callback.fail("Failed to create in memory document store")
+
+  @Given /^there is a document model defined$/, (callback)->
+    @browser.evaluate (-> window.createDocumentModel()), (result)->
+      if result? 
+        callback()
+      else
+        callback.fail("Failed to define the document model.")
 
   @Given /^a document exists$/, (callback)->
-    callback.pending()
+    @browser.evaluate (-> window.createADocumentAndReturnId()), (result)->
+      if result?
+        console.log(result)
+        @document_id = result
+        callback()
+      else
+        callback.fail("Failed to create document.")
 
   @Given /^a bunch of documents exist$/, (callback)->
     callback.pending()
@@ -17,7 +46,8 @@ inMemoryAdapterWrapper = ->
   @Given /^a bunch of new documents$/, (callback)->
     callback.pending()
 
-  @When /^I (.+) for (.+)$/, (callback)->
+  @When /^I (.+) for (.+)$/, (action,what,callback)->
+    #if (action == 'ask') && (what == 'it by id')
     callback.pending()
 
   @When /^I change (.+) data$/, (callback)->

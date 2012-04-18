@@ -10,7 +10,7 @@ guard :rspec, all_after_pass: false, all_on_start: false do
 end
 
 guard :coffeescript, input: 'lib'
-guard :coffeescript, input: 'spec', bare: true
+guard :coffeescript, input: 'spec'
 
 guard :vows, all_after_pass: false, all_on_start: false do
   watch(%r{^spec/.+_spec\.js$})

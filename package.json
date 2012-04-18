@@ -16,7 +16,9 @@
   "devDependencies": {
     "vows": "*",
     "cucumber": "*",
-    "zombie": "*"
+    "phantom": "git://github.com/shaunxcode/phantomjs-node.git",
+    "browserify": "*",
+    "express": "*"
   },
   "optionalDependencies": {},
   "engines": {
