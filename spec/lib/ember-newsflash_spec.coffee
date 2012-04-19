@@ -1,9 +1,15 @@
 vows = require 'vows'
 assert = require 'assert'
+Newsflash = require('../../lib/ember-newsflash').Newsflash
 
 suite = vows.describe('Newsflash')
 suite.addBatch
-  'it should exist': (callback)->
-    assert.notEqual(typeof(window.Newsflash), undefined)
+  'exists': ->
+    assert.notEqual(typeof(Newsflash), 'undefined')
+
+  '.Adapters': {
+    'exists': ->
+      assert.notEqual(typeof(Newsflash.Adapters), 'undefined')
+  }
 
 suite.export(module)

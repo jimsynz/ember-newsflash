@@ -11,7 +11,12 @@
     "test": "vows --spec --isolate"
   },
   "dependencies": {
-    "faye": "0.8.x"
+    "faye": "0.8.x",
+    "ember-runtime": "*",
+    "ember-metal": "*",
+    "ember-data": "git://github.com/jamesotron/data.git#npm",
+    "handlebars": "*",
+    "file": "*"
   },
   "devDependencies": {
     "vows": "*",

@@ -3,7 +3,8 @@ inMemoryAdapterWrapper = ->
   @World = require('../support/world').World
 
   @Given /^an ember app is loaded in the browser$/, (callback)->
-    @visit 'http://localhost:9797/', (success)=>
+    uri = "file://#{@fixtures}/index.html"
+    @visit uri, (success)=>
       if success 
         @browser.evaluate (-> typeof(window.App)), (result) ->
           if result == 'undefined'
@@ -15,21 +16,21 @@ inMemoryAdapterWrapper = ->
 
   @Given /^the (.+) store is loaded$/, (store_type, callback)->
     if store_type == 'in memory'
-      @browser.evaluate (-> window.createInMemoryStore()), (result)->
+      @browser.evaluate (-> typeof(window.App.createInMemoryStore())), (result)->
         if result?
           callback()
         else
           callback.fail("Failed to create in memory document store")
 
   @Given /^there is a document model defined$/, (callback)->
-    @browser.evaluate (-> window.createDocumentModel()), (result)->
+    @browser.evaluate (-> typeof(window.App.createDocumentModel())), (result)->
       if result? 
         callback()
       else
         callback.fail("Failed to define the document model.")
 
   @Given /^a document exists$/, (callback)->
-    @browser.evaluate (-> window.createADocumentAndReturnId()), (result)->
+    @browser.evaluate (-> typeof(window.App.createADocumentAndReturnId())), (result)->
       if result?
         console.log(result)
         @document_id = result

@@ -21,8 +21,13 @@ guard :rake, :task => 'npm:install' do
   watch('package.json')
 end
 
+guard :rake, task: 'browserify:acceptance' do
+  watch('spec/fixtures/html/javascripts/**/*')
+end
+
 guard 'cucumber-js', all_after_pass: false, all_on_start: false do
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+\.(js||coffee)$}) { 'features' }
   watch(%r{^features/step_definitions/(.+)\.(coffee||js)$}) { |m| "features/#{m[1]}.feature" }
+  watch("spec/fixtures/html/**/*") { 'features' }
 end
