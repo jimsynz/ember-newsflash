@@ -14,7 +14,6 @@
     "faye": "0.8.x",
     "ember-runtime": "*",
     "ember-metal": "*",
-    "ember-data": "git://github.com/jamesotron/data.git#npm",
     "handlebars": "*",
     "file": "*"
   },
@@ -23,7 +22,8 @@
     "cucumber": "*",
     "phantom": "git://github.com/shaunxcode/phantomjs-node.git",
     "browserify": "*",
-    "express": "*"
+    "express": "*",
+    "coffee-script": "*"
   },
   "optionalDependencies": {},
   "engines": {
