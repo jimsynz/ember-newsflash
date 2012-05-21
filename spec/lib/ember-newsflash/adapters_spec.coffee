@@ -4,9 +4,9 @@ Newsflash = require('../../../lib/ember-newsflash').Newsflash
 
 suite = vows.describe('Newsflash.Adapters')
 suite.addBatch
-  '.Memory':
+  '.Faye':
     'exists': ->
-      assert.notEqual(typeof(Newsflash.Adapters.Memory), 'undefined')
+      assert.notEqual(typeof(Newsflash.Adapters.Faye), 'undefined')
 
 suite.export(module)
 

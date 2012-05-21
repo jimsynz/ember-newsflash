@@ -16,7 +16,8 @@
     "ember-metal-node": "*",
     "ember-states-node": "*",
     "handlebars": "*",
-    "file": "*"
+    "file": "*",
+    "inflect": "*"
   },
   "devDependencies": {
     "vows": "*",

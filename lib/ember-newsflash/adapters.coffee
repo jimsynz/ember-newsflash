@@ -3,9 +3,9 @@ require 'ember-runtime-node'
 
 Ember = global.Ember
 
-Memory = require('./adapters/memory').Memory
+Faye = require('./adapters/faye').Faye
 
 Adapters = Ember.Object.extend()
-Adapters.Memory = Memory
+Adapters.Faye = Faye
 
 exports.Adapters = Adapters
