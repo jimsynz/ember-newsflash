@@ -1,5 +1,5 @@
-require 'ember-metal'
-require 'ember-runtime'
+require 'ember-metal-node'
+require 'ember-runtime-node'
 require '../../../vendor/ember-data'
 
 Ember = global.Ember

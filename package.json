@@ -12,8 +12,9 @@
   },
   "dependencies": {
     "faye": "0.8.x",
-    "ember-runtime": "*",
-    "ember-metal": "*",
+    "ember-runtime-node": "*",
+    "ember-metal-node": "*",
+    "ember-states-node": "*",
     "handlebars": "*",
     "file": "*"
   },
