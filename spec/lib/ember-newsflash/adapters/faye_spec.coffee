@@ -2,7 +2,8 @@ vows = require 'vows'
 assert = require 'assert'
 Newsflash = require('../../../../lib/ember-newsflash').Newsflash
 
-Mock = Ember.Namespace.create()
+Mock = Ember.Namespace.create
+  toString: -> 'Mock'
 
 Mock.Thing = DS.Model.extend
   name: DS.attr('string')
@@ -12,12 +13,28 @@ Mock.Store = Ember.Object.extend
     console.debug "didCreateRecord called"
     @get('callback')(data)
 
+class MockClient
+  constructor: (url)->
+    console.log 'Fake initializer callback'
+    @url = url
+  subscribe: (channel)->
+    callback: (m)->
+      console.log 'Fake subscribe callback'
+      m()
+    errback: (m)->
+  publish: (channel,data)->
+    callback: (m)->
+      console.log 'Fake publish callback'
+      m()
+    errback: (m)->
+
 vows
   .describe('Newsflash.Adapters.Faye')
   .addBatch
     '#classToChannel':
       topic: ->
-        faye = Newsflash.Adapters.Faye.create()
+        faye = Newsflash.Adapters.Faye.create
+          clientClass: MockClient
         faye.classToChannel(Mock.Thing)
       'returns a path': (topic)->
         assert.equal topic, '/mocks/things'
@@ -38,17 +55,16 @@ vows
 
     '#createRecord': 
       topic: ->
+        adapter = Newsflash.Adapters.Faye.create()
         thing = Mock.Thing.create()
         thing.set 'name', 'a thing of great beauty'
+        adapter.createRecord(store,Mock.Thing,thing)
         store = Mock.Store.create
           callback: @callback
-        adapter = Newsflash.Adapters.Faye.create()
-        adapter.createRecord(store,Mock.Thing,thing)
         return undefined
 
-      'topic is a thing': (thing,data)->
-        console.warn data
-        #assert.equal thing.get('name'), 'a thing of great beauty'
+      'topic is a thing': (data)->
+        assert.equal data, 'a thing of great beauty'
         
 
   .export(module)
